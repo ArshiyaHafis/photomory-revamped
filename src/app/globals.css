@@ -1,8 +1,10 @@
 @import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;700&display=swap');
+
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #EBE1D8;
+  --foreground: #743749;
 }
 
 @theme inline {
@@ -12,15 +14,90 @@
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
+@media (prefers-color-scheme: light) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --background: #EBE1D8;
+  --foreground: #743749;
+}
+
+}
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow: hidden; /* Prevent body from scrolling */
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Fira Code', monospace;
 }
+
+
+/* Scrollbar container */
+::-webkit-scrollbar {
+  width: 30px;
+  background-color: transparent; /* keep consistent with layout */
+}
+
+/* Scrollbar track */
+::-webkit-scrollbar-track {
+  background-color: #EBE1D8;
+  border-left: 2.5px solid #743749;
+  border-right: 2.5px solid #743749;
+}
+
+/* Scrollbar thumb (the draggable part) */
+::-webkit-scrollbar-thumb {
+min-height: 30px;
+  max-height: 100px;
+  background-color: #88D6A2;
+  border: 2.5px solid #743749;
+  border-radius: 20px;
+  box-sizing: border-box; 
+}
+
+
+/* Scrollbar buttons (top and bottom square) */
+::-webkit-scrollbar-button {
+  width: 30px;
+  height: 30px;
+  background-color: #EBE1D8;
+  border: 2.5px solid #743749;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+::-webkit-scrollbar-button:single-button:increment {
+  background: #EBE1D8;
+  height: 70px;
+}
+
+
+/* Up arrow */
+/* ::-webkit-scrollbar-button:single-button:decrement::before {
+  content: '';
+  display: block;
+  width: 0;
+  height: 0;
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-bottom: 8px solid #88D6A2;
+  border-radius: 5px;
+} */
+
+/* Down arrow */
+/* ::-webkit-scrollbar-button:single-button:increment::before {
+  content: '';
+  display: block;
+  width: 0;
+  height: 0;
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-top: 8px solid #88D6A2;
+  border-radius: 5px;
+} */
