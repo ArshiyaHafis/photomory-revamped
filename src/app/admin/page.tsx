@@ -1,27 +1,84 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useRouter } from "next/navigation";
+import { onAuthStateChanged } from "firebase/auth";
+import { auth } from "@/lib/firebaseConfig";
 
 export default function UploadPage() {
+  const router = useRouter();
+  const [user, setUser] = useState<any>(null);
+  const [loading, setLoading] = useState(true);
+
   const [imageName, setImageName] = useState("");
   const [imageFile, setImageFile] = useState<File | null>(null);
   const [categories, setCategories] = useState<string[]>([]);
   const [selectedCategory, setSelectedCategory] = useState("");
   const [newCategory, setNewCategory] = useState("");
 
+  // Check authentication
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+      setUser(currentUser);
+      setLoading(false);
+      if (!currentUser) router.push("/login");
+    });
+
+    return () => unsubscribe();
+  }, []);
+
+  // Fetch categories from Flask backend
+  useEffect(() => {
+    const fetchCategories = async () => {
+      try {
+        const res = await fetch("https://photomory-backend.onrender.com/categories");
+        if (!res.ok) throw new Error("Failed to fetch categories");
+        const data = await res.json();
+        setCategories(data);
+      } catch (error) {
+        console.error("Error fetching categories:", error);
+      }
+    };
+
+    fetchCategories();
+  }, []);
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    if (!imageFile) return;
 
-    const formData = new FormData();
-    formData.append("name", imageName);
-    formData.append("category", selectedCategory || newCategory);
-    if (imageFile) {
-      formData.append("image", imageFile);
+    const category = selectedCategory || newCategory.trim();
+    if (!category) {
+      alert("Please select or add a category.");
+      return;
     }
 
+    try {
+      const formData = new FormData();
+      formData.append("title", imageName);
+      formData.append("category", category);
+      formData.append("image", imageFile);
 
-    console.log("Form submitted!");
+      const res = await fetch("https://photomory-backend.onrender.com/upload", {
+        method: "POST",
+        body: formData,
+      });
+
+      if (!res.ok) throw new Error("Failed to upload image");
+
+      alert("Image uploaded successfully!");
+      setImageName("");
+      setImageFile(null);
+      setSelectedCategory("");
+      setNewCategory("");
+    } catch (error) {
+      console.error("Upload failed:", error);
+      alert("Upload failed");
+    }
   };
+
+  if (loading) return <p className="text-center mt-10">Checking authentication...</p>;
+  if (!user) return null;
 
   return (
     <div className="min-h-screen px-6 py-8 bg-[#EBE1D8] text-[#743749]">
