@@ -25,7 +25,7 @@ html, body {
   margin: 0;
   padding: 0;
   height: 100%;
-  overflow: hidden; /* Prevent body from scrolling */
+  overflow: hidden;
 }
 
 body {
@@ -77,6 +77,21 @@ min-height: 30px;
   height: 70px;
 }
 
+::-webkit-scrollbar-button:single-button:decrement {
+  border-top: 0;
+  position: relative;
+}
+
+::-webkit-scrollbar-button:single-button:decrement::before {
+  content: '';
+  display: block;
+  width: 0;
+  height: 0;
+  margin: auto;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-bottom: 12px solid #88D6A2; /* Triangle color */
+}
 
 /* Up arrow */
 /* ::-webkit-scrollbar-button:single-button:decrement::before {
