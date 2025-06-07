@@ -19,7 +19,7 @@ export default function Cursor() {
     cursor: none !important;
   }`}</style>
       <div
-        className="fixed z-50 w-6 h-6 bg-[#88D6A2] border-[2.5px] border-[#743749] rounded-full pointer-events-none transition-transform duration-75 ease-out"
+        className="fixed z-9999 w-6 h-6 bg-[#88D6A2] border-[2.5px] border-[#743749] rounded-full pointer-events-none transition-transform duration-75 ease-out"
         style={{
           transform: `translate(${pos.x - 12}px, ${pos.y - 12}px)`,
         }}

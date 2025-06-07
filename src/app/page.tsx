@@ -10,7 +10,8 @@ export default function Home() {
   useEffect(() => {
     const fetchCategories = async () => {
       try {
-        const res = await fetch("https://photomory-backend.onrender.com/categories");
+        const res = await fetch("http://localhost:5000/categories");
+        console.log('categories:',res)
         const data = await res.json();
         setCategories(data);
       } catch (error) {
