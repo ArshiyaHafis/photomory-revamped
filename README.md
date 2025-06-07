@@ -1,36 +1,57 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 📸 Photomory
 
-## Getting Started
+**Photomory** is a cozy little space on the internet where I’ve combined some of my favorite things: photography, cats, doodling, memories, and the joy of building something from scratch.
 
-First, run the development server:
+This project started from a simple love of taking pictures — especially of cats 🐱 — and the desire to create a digital corner to keep those moments. But over time, it became more than that. It’s a celebration of small joys, a personal design challenge, and a hands-on way to explore full-stack development with a bit of fun and flair.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+---
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🌟 What It Does
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Photomory lets users upload their favorite images, assign them to categories, and keep them safe — all in a warm, playful interface. Think of it as a digital memory box, but with a bit more personality.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- ✨ Upload images to categories(only me hehe)
+- 🐾 Add custom folders for doodles, pet pics, anything!(only me hehe)
+- 🔐 Authentication with Firebase (only I can upload for now)
+- 🌈 Custom-designed UI — soft colors, handpicked fonts, and all the vibes
+- 🔗 Links out to GitHub + Figma if you're curious about the behind-the-scenes
 
-## Learn More
+---
 
-To learn more about Next.js, take a look at the following resources:
+## 🎨 The Design Philosophy
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+I really wanted Photomory to *feel* like me — from the colors and fonts to the little stories behind each photo. The earlier version of this site was a bit clunky, so I decided to start over with a cleaner layout and better flow, using tools I’ve learned along the way.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- Soft colors that feel like nostalgia
+- Rounded cards, playful text, and attention to tiny details
+- Hand-drawn doodles in the design to add a human touch
 
-## Deploy on Vercel
+---
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 🛠️ Under the Hood
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- **Frontend:** Next.js + Tailwind CSS
+- **Backend:** Firebase (Auth + Firestore) and/or Flask API
+- **Hosting:** Backend : render, Frontend : vercel
+- **Authentication:** Email/password via Firebase
+- **Design:** Figma — made with care!
+
+---
+
+## 💌 A Little Personal Note
+
+I’m someone who finds joy in capturing small moments — a cat stretching in the sun, a messy sketch I like, a silly photo I took on a trip. **Photomory** is just me trying to make space for those things.
+
+It’s not just about tech, though I’ve learned a ton building it. It’s also about building something meaningful — something that makes me smile every time I open it.
+
+---
+
+## 🔗 Explore More
+
+- [Frontend Code](https://github.com/ArshiyaHafis/photomory-revamped/tree/frontend)
+- [Backend Code](https://github.com/ArshiyaHafis/photomory-revamped/tree/backend)
+- [Figma Design](https://www.figma.com/design/cMesYuJ1rMWJQLWiI451GS/PHOTOMORY-REVAMPED?node-id=18-174)
+
+---
+
+**Made with love, a camera roll full of memories, and lots of coffee. ☕**

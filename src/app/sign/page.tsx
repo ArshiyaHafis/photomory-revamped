@@ -57,7 +57,7 @@ export default function SignInPage() {
   }
 
   return (
-    <div className="min-h-screen px-6 py-8 bg-[#EBE1D8] text-[#743749]">
+    <div className="min-h-screen p  x-6 py-8 bg-[#EBE1D8] text-[#743749]">
       <h1 className="text-3xl font-bold mb-2 text-center">Sign In</h1>
       <form
       onSubmit={(e) => {
