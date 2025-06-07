@@ -8,17 +8,14 @@ export default function Navbar() {
   return (
     <div className="flex items-center gap-3 px-4 py-2 text-[#743749] border-[2.5px] border-[#743749] bg-[#FAC660]">
       <div className="flex gap-3">
-        {/* Red button: Go back */}
         <div
           onClick={() => router.back()}
           className="w-[20px] h-[20px] rounded-full bg-[#DF6152] border-[2.5px] border-[#743749] cursor-pointer"
         />
-        {/* Blue button: Go to sign in */}
         <div
           onClick={() => router.push('/sign')}
           className="w-[20px] h-[20px] rounded-full bg-[#79B0D7] border-[2.5px] border-[#743749] cursor-pointer"
         />
-        {/* Green button: Go to admin */}
         <div
           onClick={() => router.push('/admin')}
           className="w-[20px] h-[20px] rounded-full bg-[#88D6A2] border-[2.5px] border-[#743749] cursor-pointer"
