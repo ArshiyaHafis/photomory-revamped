@@ -31,7 +31,7 @@ export default function UploadPage() {
   useEffect(() => {
     const fetchCategories = async () => {
       try {
-        const res = await fetch("http://localhost:5000/categories");
+        const res = await fetch("https://photomory-backend.onrender.com/categories");
         if (!res.ok) throw new Error("Failed to fetch categories");
         const data = await res.json();
         setCategories(data);
@@ -59,7 +59,7 @@ export default function UploadPage() {
       formData.append("category", category);
       formData.append("image", imageFile);
 
-      const res = await fetch("http://localhost:5000/upload", {
+      const res = await fetch("https://photomory-backend.onrender.com/upload", {
         method: "POST",
         body: formData,
       });

@@ -13,7 +13,7 @@ export default function SearchBar() {
   useEffect(() => {
     const fetchImages = async () => {
       try {
-        const res = await fetch('http://localhost:5000/images');
+        const res = await fetch('https://photomory-backend.onrender.com/images');
         const data = await res.json();
         setAllImages(data);
       } catch (error) {

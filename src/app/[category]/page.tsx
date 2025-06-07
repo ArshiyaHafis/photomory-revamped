@@ -17,7 +17,7 @@ export default function CategoryPage() {
   useEffect(() => {
     const fetchImages = async () => {
       try {
-        const res = await fetch(`http://localhost:5000/images/${category}`);
+        const res = await fetch(`https://photomory-backend.onrender.com/images/${category}`);
         const data = await res.json();
         setImages(data);
       } catch (err) {
@@ -48,7 +48,7 @@ export default function CategoryPage() {
               ✖
             </button>
             <img
-              src={`http://localhost:5000${selectedImage.url}`}
+              src={`https://photomory-backend.onrender.com${selectedImage.url}`}
               alt={selectedImage.title}
               className="max-w-full max-h-[70vh] rounded"
             />
@@ -68,7 +68,7 @@ export default function CategoryPage() {
               onClick={() => setSelectedImage(img)}
             >
               <img
-                src={`http://localhost:5000${img.url}`}
+                src={`https://photomory-backend.onrender.com${img.url}`}
                 alt={img.title}
                 width={200}
                 height={200}
