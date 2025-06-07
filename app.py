@@ -23,6 +23,11 @@ class Image(db.Model):
 with app.app_context():
     db.create_all()
 
+@app.route('/')
+def health_check():
+    return 'Backend is up!', 200
+
+
 @app.route('/upload', methods=['POST'])
 def upload_image():
     print("Form keys received:", request.form)
