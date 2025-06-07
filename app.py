@@ -1,9 +1,11 @@
 from flask import Flask, request, jsonify, send_from_directory
 from flask_sqlalchemy import SQLAlchemy
 import os
+from flask_cors import CORS
 from werkzeug.utils import secure_filename
 
 app = Flask(__name__)
+CORS(app)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///images.db'
 app.config['UPLOAD_FOLDER'] = 'uploads'
 app.config['MAX_CONTENT_LENGTH'] = 16 * 1024 * 1024  # 16MB max
@@ -23,6 +25,9 @@ with app.app_context():
 
 @app.route('/upload', methods=['POST'])
 def upload_image():
+    print("Form keys received:", request.form)
+    print("Files received:", request.files)
+
     title = request.form.get('title')
     category = request.form.get('category')
     file = request.files.get('image')
