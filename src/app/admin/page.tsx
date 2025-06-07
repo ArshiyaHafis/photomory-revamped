@@ -81,38 +81,39 @@ export default function UploadPage() {
   if (!user) {
   return (
     <div className="min-h-screen px-6 py-12 bg-[#EBE1D8] text-[#743749] flex flex-col items-center text-center">
-      <h1 className="text-3xl font-bold mb-4">Welcome to Photomory!</h1>
-      <p className="max-w-xl mb-6 text-lg">
-        This page is for uploading images, but you must be signed in to use it.
-        Meanwhile, here's a little about this project!
+  <h1 className="text-3xl font-bold mb-4">Welcome to Photomory!</h1>
+  <p className="max-w-xl mb-6 text-lg">
+    This page is for uploading images, but you must be signed in to use it.
+    Meanwhile, here&rsquo;s a little about this project!
+  </p>
+  <div className="border-2 border-[#743749] bg-white p-6 rounded-xl shadow-md max-w-2xl">
+    <h2 className="text-xl font-semibold mb-4 text-[#743749]">What Photomory Means to Me</h2>
+    <p className="mb-4">
+      I&rsquo;ve always loved clicking pictures—especially of cats. 🐱 This project has been on my mind for a long time. 
+      I actually made an earlier version of this website, but I really wanted to improve how it looked and felt, 
+      so I revamped it with a cleaner design and better features.
+    </p>
+    <p className="mb-4">
+      Lately, I&rsquo;ve also been getting into doodling, and this space is a way for me to combine all those small joys 
+      of mine—photos, cats, creativity, and a sprinkle of fun.
+    </p>
+    <p className="italic">
+      Built with love, a camera roll full of memories, and lots of coffee. ☕
+    </p>
+    <div className="mt-6 text-sm">
+      <p>
+        🔗 <a href="https://github.com/ArshiyaHafis/photomory-revamped/tree/frontend" target="_blank" className="underline hover:text-[#DF6152]">Frontend code</a>
       </p>
-      <div className="border-2 border-[#743749] bg-white p-6 rounded-xl shadow-md max-w-2xl">
-        <h2 className="text-xl font-semibold mb-4 text-[#743749]">What Photomory Means to Me</h2>
-        <p className="mb-4">
-          I've always loved clicking pictures—especially of cats. 🐱 This project has been on my mind for a long time. 
-          I actually made an earlier version of this website, but I really wanted to improve how it looked and felt, 
-          so I revamped it with a cleaner design and better features.
-        </p>
-        <p className="mb-4">
-          Lately, I’ve also been getting into doodling, and this space is a way for me to combine all those small joys 
-          of mine—photos, cats, creativity, and a sprinkle of fun.
-        </p>
-        <p className="italic">
-          Built with love, a camera roll full of memories, and lots of coffee. ☕
-        </p>
-        <div className="mt-6 text-sm">
-          <p>
-            🔗 <a href="https://github.com/ArshiyaHafis/photomory-revamped/tree/frontend" target="_blank" className="underline hover:text-[#DF6152]">Frontend code</a>
-          </p>
-          <p>
-            🔗 <a href="https://github.com/ArshiyaHafis/photomory-revamped/tree/backend" target="_blank" className="underline hover:text-[#DF6152]">Backend code</a>
-          </p>
-          <p>
-            🎨 <a href="https://www.figma.com/design/cMesYuJ1rMWJQLWiI451GS/PHOTOMORY-REVAMPED?node-id=18-174" target="_blank" className="underline hover:text-[#DF6152]">Figma design</a>
-          </p>
-        </div>
-      </div>
+      <p>
+        🔗 <a href="https://github.com/ArshiyaHafis/photomory-revamped/tree/backend" target="_blank" className="underline hover:text-[#DF6152]">Backend code</a>
+      </p>
+      <p>
+        🎨 <a href="https://www.figma.com/design/cMesYuJ1rMWJQLWiI451GS/PHOTOMORY-REVAMPED?node-id=18-174" target="_blank" className="underline hover:text-[#DF6152]">Figma design</a>
+      </p>
     </div>
+  </div>
+</div>
+
   );
 }
 

@@ -14,12 +14,12 @@ export default function Navbar() {
           className="w-[20px] h-[20px] rounded-full bg-[#DF6152] border-[2.5px] border-[#743749] cursor-pointer"
         />
         <div
-          title="are you arshiya?"
+          title="why did i do this?"
           onClick={() => router.push('/admin')}
           className="w-[20px] h-[20px] rounded-full bg-[#88D6A2] border-[2.5px] border-[#743749] cursor-pointer"
         />
         <div
-          title="why did i do this?"
+          title="are you arshiya?"
           onClick={() => router.push('/sign')}
           className="w-[20px] h-[20px] rounded-full bg-[#79B0D7] border-[2.5px] border-[#743749] cursor-pointer"
         />

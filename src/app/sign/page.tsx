@@ -48,7 +48,7 @@ export default function SignInPage() {
         <h2 className="text-xl font-bold mb-4">Welcome, {user.email}</h2>
         <button
           onClick={handleSignOut}
-          className="bg-red-500 text-white px-4 py-2 rounded"
+          className="bg-[#88D6A2] text-[#743749] py-2 w-full font-bold rounded-lg border-2 border-[#743749] hover:scale-105 transition"
         >
           Sign Out
         </button>
@@ -57,17 +57,24 @@ export default function SignInPage() {
   }
 
   return (
-    <div className="p-4 max-w-sm mx-auto">
-      <h2 className="text-xl font-bold mb-4">Sign In</h2>
+    <div className="min-h-screen px-6 py-8 bg-[#EBE1D8] text-[#743749]">
+      <h1 className="text-3xl font-bold mb-2 text-center">Sign In</h1>
+      <form
+      onSubmit={(e) => {
+    e.preventDefault(); // prevent reload
+    handleSignIn();
+  }}
+        className="max-w-md mx-auto flex flex-col gap-6 border-2 border-[#743749] p-6 rounded-xl bg-white"
+      >
       <input
-        className="mb-2 w-full p-2 border"
+        className="border border-[#743749] p-2 w-full rounded-md text-[#743749]"
         placeholder="Email"
         type="email"
         value={email}
         onChange={(e) => setEmail(e.target.value)}
       />
       <input
-        className="mb-2 w-full p-2 border"
+        className="border border-[#743749] p-2 w-full rounded-md text-[#743749]"
         placeholder="Password"
         type="password"
         value={password}
@@ -75,10 +82,12 @@ export default function SignInPage() {
       />
       <button
         onClick={handleSignIn}
-        className="bg-blue-500 text-white px-4 py-2 w-full rounded"
+        className="bg-[#88D6A2] text-[#743749] py-2 w-full font-bold rounded-lg border-2 border-[#743749] hover:scale-105 transition"
+        // className="bg-blue-500 text-white px-4 py-2 w-full rounded"
       >
         Sign In
       </button>
+      </form>
     </div>
   );
 }
