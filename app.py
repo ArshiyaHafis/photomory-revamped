@@ -22,6 +22,7 @@ class Image(db.Model):
 
 with app.app_context():
     db.create_all()
+    print('created dbs')
 
 @app.route('/')
 def health_check():
