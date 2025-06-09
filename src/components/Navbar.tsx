@@ -24,7 +24,9 @@ export default function Navbar() {
           className="w-[20px] h-[20px] rounded-full bg-[#79B0D7] border-[2.5px] border-[#743749] cursor-pointer"
         />
       </div>
-      <span className="ml-4 text-sm">photomory.exe</span>
+      <div className="flex-grow" />
+
+      <span className="text-sm">photomory.exe</span>
     </div>
   );
 }

@@ -4,27 +4,25 @@ import { useEffect, useState } from "react";
 import { useParams } from "next/navigation";
 import SearchBar from "@/components/SearchBar";
 import Navbar from "@/components/Navbar";
+import LoadingBar from "@/components/LoadingBar"; // 1️⃣ Import
 
 export default function CategoryPage() {
   const { category } = useParams();
-  const [images, setImages] = useState<
-    { id: number; title: string; url: string }[]
-  >([]);
-  const [selectedImage, setSelectedImage] = useState<{
-    title: string;
-    url: string;
-  } | null>(null);
+  const [images, setImages] = useState<{ id: number; title: string; url: string }[]>([]);
+  const [selectedImage, setSelectedImage] = useState<{ title: string; url: string } | null>(null);
+  const [isLoading, setIsLoading] = useState(true); // 2️⃣ Loading state
 
   useEffect(() => {
     const fetchImages = async () => {
       try {
-        const res = await fetch(
-          `https://photomory-backend.onrender.com/images/${category}`
-        );
+        setIsLoading(true); // Start loading
+        const res = await fetch(`https://photomory-backend.onrender.com/images/${category}`);
         const data = await res.json();
         setImages(data);
       } catch (err) {
         console.error("Failed to fetch images:", err);
+      } finally {
+        setIsLoading(false); // End loading
       }
     };
 
@@ -33,42 +31,38 @@ export default function CategoryPage() {
 
   return (
     <div className="h-screen flex flex-col overflow-hidden relative">
-  {selectedImage && (
-  <div className="fixed inset-0 z-50 flex items-center justify-center">
-    <div
-      className="absolute inset-0 bg-black/40 backdrop-blur-sm"
-      onClick={() => setSelectedImage(null)}
-    ></div>
-    <div className="z-10 bg-white/80 backdrop-blur-md shadow-lg relative max-w-[90vw] max-h-[90vh] rounded-lg overflow-hidden">
-      
-      <div className="flex items-center gap-3 px-4 py-2 text-[#743749] border-b-[2.5px] border-[#743749] bg-[#FAC660] rounded-t-lg">
-        <div className="flex gap-3">
-          <div
-            className="w-[20px] h-[20px] rounded-full bg-[#DF6152] border-[2.5px] border-[#743749] cursor-pointer"
-            onClick={() => setSelectedImage(null)}
-          />
-          <div
-            className="w-[20px] h-[20px] rounded-full bg-[#79B0D7] border-[2.5px] border-[#743749] cursor-pointer"
-          />
-          <div
-            className="w-[20px] h-[20px] rounded-full bg-[#88D6A2] border-[2.5px] border-[#743749] cursor-pointer"
-          />
-        </div>
-      </div>
-      <div className="px-4 pt-4">
-      <img
-        src={`https://photomory-backend.onrender.com${selectedImage.url}`}
-        alt={selectedImage.title}
-        className="max-w-full max-h-[70vh] border-[2.5px] border-[#743749] rounded-b-lg"
-      />
-      <p className="mt-2 text-sm text-center break-words max-w-xs mx-auto">
-        {selectedImage.title}
-      </p>
-      </div>
-    </div>
-  </div>
-)}
+      <LoadingBar isLoading={isLoading} /> {/* 3️⃣ Show loading bar */}
 
+      {selectedImage && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center">
+          <div
+            className="absolute inset-0 bg-black/40 backdrop-blur-sm"
+            onClick={() => setSelectedImage(null)}
+          ></div>
+          <div className="z-10 bg-white/80 backdrop-blur-md shadow-lg relative max-w-[90vw] max-h-[90vh] rounded-lg overflow-hidden">
+            <div className="flex items-center gap-3 px-4 py-2 text-[#743749] border-b-[2.5px] border-[#743749] bg-[#FAC660] rounded-t-lg">
+              <div className="flex gap-3">
+                <div
+                  className="w-[20px] h-[20px] rounded-full bg-[#DF6152] border-[2.5px] border-[#743749] cursor-pointer"
+                  onClick={() => setSelectedImage(null)}
+                />
+                <div className="w-[20px] h-[20px] rounded-full bg-[#79B0D7] border-[2.5px] border-[#743749]" />
+                <div className="w-[20px] h-[20px] rounded-full bg-[#88D6A2] border-[2.5px] border-[#743749]" />
+              </div>
+            </div>
+            <div className="px-4 pt-4">
+              <img
+                src={`https://photomory-backend.onrender.com${selectedImage.url}`}
+                alt={selectedImage.title}
+                className="max-w-full max-h-[70vh] border-[2.5px] border-[#743749] rounded-b-lg"
+              />
+              <p className="mt-2 text-sm text-center break-words max-w-xs mx-auto">
+                {selectedImage.title}
+              </p>
+            </div>
+          </div>
+        </div>
+      )}
 
       <main className="flex-1 min-h-0 overflow-y-auto px-4 sm:px-8 pt-6 pb-12">
         <SearchBar />
