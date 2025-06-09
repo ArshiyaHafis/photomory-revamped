@@ -84,18 +84,18 @@ export default function UploadPage() {
       <h1 className="text-3xl font-bold mb-4">Welcome to Photomory!</h1>
       <p className="max-w-xl mb-6 text-lg">
         This page is for uploading images, but you must be signed in to use it.
-        Meanwhile, here's a little about this project!
+        Meanwhile, here&apos;s a little about this project!
       </p>
       <div className="border-2 border-[#743749] bg-white p-6 rounded-xl shadow-md max-w-2xl">
         <h2 className="text-xl font-semibold mb-4 text-[#743749]">What Photomory Means to Me</h2>
         <p className="mb-4">
-          I've always loved clicking pictures—especially of cats. 🐱 This project has been on my mind for a long time. 
-          I actually made an earlier version of this website, but I really wanted to improve how it looked and felt, 
-          so I revamped it with a cleaner design and better features.
+        I&apos;ve always loved clicking pictures—especially of cats. 🐱 This project has been on my mind for a long time. 
+        I actually made an earlier version of this website, but I really wanted to improve how it looked and felt, 
+        so I revamped it with a cleaner design and better features.
         </p>
         <p className="mb-4">
-          Lately, I’ve also been getting into doodling, and this space is a way for me to combine all those small joys 
-          of mine—photos, cats, creativity, and a sprinkle of fun.
+        Lately, I&apos;ve also been getting into doodling, and this space is a way for me to combine all those small joys 
+        of mine—photos, cats, creativity, and a sprinkle of fun.
         </p>
         <p className="italic">
           Built with love, a camera roll full of memories, and lots of coffee. ☕
