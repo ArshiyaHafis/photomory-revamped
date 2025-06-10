@@ -85,14 +85,18 @@ def delete_image(image_id):
 @app.route('/images/<category>', methods=['GET'])
 def get_images_by_category(category):
     images = Image.query.filter_by(category=category).all()
-    return jsonify([
+    response_data = [
         {
             'id': img.id,
             'title': img.title,
             'category': img.category,
             'url': f'/uploads/{img.filename}'
         } for img in images
-    ])
+    ]
+    
+    t1 = jsonify(response_data)
+    print('hi:', t1.get_data(as_text=True))  
+    return t1
 
 @app.route('/categories', methods=['GET'])
 def get_categories():
