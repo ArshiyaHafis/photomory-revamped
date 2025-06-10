@@ -35,7 +35,7 @@ export default function Home() {
           {categories.map((category, index) => (
             <a
               key={index}
-              href={`/${category.toLowerCase().replace(/\s+/g, "-")}`}
+              href={`/${category.replace(/\s+/g, "-")}`}
               className="flex flex-col items-center hover:scale-105 transition w-full max-w-xs px-2"
             >
               <Image

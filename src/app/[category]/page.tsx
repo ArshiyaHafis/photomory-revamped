@@ -18,6 +18,7 @@ export default function CategoryPage() {
         setIsLoading(true); // Start loading
         const res = await fetch(`https://photomory-backend.onrender.com/images/${category}`);
         const data = await res.json();
+        console.log(data);
         setImages(data);
       } catch (err) {
         console.error("Failed to fetch images:", err);
